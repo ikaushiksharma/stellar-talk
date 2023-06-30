@@ -37,7 +37,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, currentU
       image: currentUser?.image,
     },
   });
-  //
+
   const image = watch("image");
 
   const handleUpload = (result: any) => {
