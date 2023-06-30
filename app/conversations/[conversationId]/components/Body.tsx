@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 // import { pusherClient } from "@/app/libs/pusher";
 import useConversation from "@/app/hooks/useConversation";
-// import MessageBox from "./MessageBox";
+import MessageBox from "./MessageBox";
 import { FullMessageType } from "@/app/types";
 // import { find } from "lodash";
 
@@ -19,9 +19,9 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
 
   const { conversationId } = useConversation();
 
-  //   useEffect(() => {
-  //     axios.post(`/api/conversations/${conversationId}/seen`);
-  //   }, [conversationId]);
+  useEffect(() => {
+    axios.post(`/api/conversations/${conversationId}/seen`);
+  }, [conversationId]);
 
   //   useEffect(() => {
   //     pusherClient.subscribe(conversationId);
@@ -66,8 +66,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
   return (
     <div className="flex-1 overflow-y-auto">
       {messages.map((message, i) => (
-        <>Hi </>
-        // <MessageBox isLast={i === messages.length - 1} key={message.id} data={message} />
+        <MessageBox isLast={i === messages.length - 1} key={message.id} data={message} />
       ))}
       <div className="pt-24" ref={bottomRef} />
     </div>
