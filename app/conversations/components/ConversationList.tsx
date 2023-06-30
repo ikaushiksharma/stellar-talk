@@ -14,6 +14,7 @@ interface ConversationListProps {
 
 const CoversationList: React.FC<ConversationListProps> = ({ initialItems, title }) => {
   const [items, setItems] = useState(initialItems);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
   const { conversationId, isOpen } = useConveration();
   return (
