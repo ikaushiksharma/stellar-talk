@@ -5,6 +5,7 @@ import { useState } from "react";
 import { MdOutlineGroupAdd } from "react-icons/md";
 import useConveration from "@/app/hooks/useConversation";
 import { FullConversationType } from "@/app/types";
+import ConversationBox from "./ConversationBox";
 
 interface ConversationListProps {
   initialItems: FullConversationType[];
@@ -51,8 +52,7 @@ const CoversationList: React.FC<ConversationListProps> = ({ initialItems, title 
           </div>
         </div>
         {items.map((item) => (
-          <div key={item.id}>Conversation</div>
-          // <ConversationBox key={item.id} data={item} selected={conversationId === item.id} />
+          <ConversationBox key={item.id} data={item} selected={conversationId === item.id} />
         ))}
       </div>
     </aside>
